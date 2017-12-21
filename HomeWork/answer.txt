@@ -1,0 +1,60 @@
+Ex3.9
+threeDifferent :: Integer -> Integer -> Integer -> Bool
+threeDifferent m n p = (m /= n) && (m /= p) && (n /= p)
+
+Ex3.17
+charToNum :: Char -> Int
+charToNum num
+  | ( '0' <= num ) && ( num <= '9') = ord num - ord '0'
+  | otherwise  = 0
+
+Ex3.20
+averageThree :: Integer -> Integer -> Integer -> Float
+averageThree a b c = ( fromIntegral a + fromIntegral b + fromIntegral c ) / (fromIntegral 3 )
+
+howManyAboveAverage :: Integer -> Integer -> Integer -> Integer
+howManyAboveAverage a b c
+ | avg < (fromIntegral a) = a
+ | avg < (fromIntegral b) = b
+ | avg < (fromIntegral c) = c
+
+ where
+  avg = averageThree a b c
+
+Ex5.1
+maxOccurs :: Integer -> Integer -> (Integer, Integer)
+maxOccurs a b
+ | a == b = (a, 2)
+ | a < b = ( b , 1 )
+ | otherwise = ( a , 1 )
+
+maxThreeOccurs :: Integer -> Integer -> Integer -> (Integer, Integer)
+maxThreeOccurs a b c
+    | max_value < c  = (c, 1)
+    | max_value == c = (max_value, num_value + 1)
+    | max_value > c  = (max_value, num_value )
+    where max_value = fst (maxOccurs a b )
+          num_value = snd (maxOccurs a b )
+
+
+Ex5.21
+matches :: Integer -> [Integer] -> [Integer]
+matches num list = [ m | m <- list, m == num ]
+
+elem :: Integer -> [Integer] -> Bool
+elem num list
+ | (null (matches num list) == True ) = False
+ | otherwise = True
+
+Ex5.28
+borrowers :: Database -> Book -> [Person]
+borrowers db bk = [ fst p | p <- db , snd p == bk]
+
+borrowed :: Database -> Book -> [Bool]
+borrowed db bk = [j == bk | j <- bkdb]
+ where bkdb = [snd i | i <- db]
+
+numBorrowed :: Database -> Person -> Int
+numBorrowed db pn = length [j | j <- pndb , j == pn ]
+ where
+  pndb = [fst i | i <- db]
