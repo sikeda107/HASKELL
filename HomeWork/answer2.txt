@@ -1,0 +1,20 @@
+Ex6.3
+((a,b),c) -> (a,(b,c))
+
+Ex6.6
+superimposeChar :: Char -> Char -> Char
+superimposeChar '.' '.' = '.'
+superimposeChar _   _   = '#'
+
+superimposeLine :: [Char] -> [Char] -> [Char]
+superimposeLine a b = [ superimposeChar a b | (a,b) <- zip a b ]
+
+superimpose :: Picture -> Picture -> Picture
+superimpose a b = [ superimposeLine a b | (a,b) <- zip a b  ]
+
+Ex6.47
+
+
+Ex7.9
+Ex7.25
+Ex7.29
