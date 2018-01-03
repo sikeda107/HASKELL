@@ -1,7 +1,7 @@
-Ex6.3
+--Ex6.3
 ((a,b),c) -> (a,(b,c))
 
-Ex6.6
+--Ex6.6
 superimposeChar :: Char -> Char -> Char
 superimposeChar '.' '.' = '.'
 superimposeChar _   _   = '#'
@@ -12,9 +12,41 @@ superimposeLine a b = [ superimposeChar a b | (a,b) <- zip a b ]
 superimpose :: Picture -> Picture -> Picture
 superimpose a b = [ superimposeLine a b | (a,b) <- zip a b  ]
 
-Ex6.47
+-- Ex6.47
+look :: Database -> BarCode -> (Name,Price)
+look db bc
+ | null list == False = head list
+ | null list == True = ("Unknown Item",0)
+ where
+  list  = [ (y,z)| (x,y,z) <- db , x == bc]
+
+mylookup :: BarCode -> (Name,Price)
+mylookup bc = look codeIndex bc
+
+makeBill :: TillType -> BillType
+makeBill t = map mylookup t
 
 
-Ex7.9
-Ex7.25
-Ex7.29
+-- Ex7.9
+unique :: [Integer] -> [Integer]
+unique [] = []
+unique (a:b)
+ | b /= x  = unique x
+ | otherwise = a : unique x
+  where
+   x = [y | y<-b, y /= a]
+
+-- Ex7.25
+sublist :: String -> String -> Bool
+sublist [] _      = True
+sublist _ []      = False
+sublist (a:b) c = (elem a c) && (sublist b c)
+
+-- Ex7.29
+joinLine :: Line -> String
+joinLine [] = []
+joinLine (a:[]) = a
+joinLine (a:b) = a ++ " " ++ joinLine b
+
+joinLines :: [Line] -> String
+joinLines a = joinLine ( map joinLine a )
