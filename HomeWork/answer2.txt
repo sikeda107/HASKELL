@@ -28,6 +28,7 @@ makeBill t = map mylookup t
 
 
 -- Ex7.9
+#リスト使用
 unique :: [Integer] -> [Integer]
 unique [] = []
 unique (a:b)
@@ -36,11 +37,17 @@ unique (a:b)
   where
    x = [y | y<-b, y /= a]
 
+#リスト無し
+
+unique :: [Integer] -> [Integer]
+
 -- Ex7.25
 sublist :: String -> String -> Bool
 sublist [] _      = True
 sublist _ []      = False
 sublist (a:b) c = (elem a c) && (sublist b c)
+
+subseq :: String -> String -> Bool
 
 -- Ex7.29
 joinLine :: Line -> String
