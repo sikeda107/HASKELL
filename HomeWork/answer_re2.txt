@@ -1,0 +1,16 @@
+-- Ex7.25
+
+
+-- Ex7.29
+joinLine :: Line -> String
+joinLine [] = []
+joinLine (a:[]) = a
+joinLine (a:b) = a ++ " " ++ joinLine b
+
+joinNewLine :: Line -> String
+joinNewLine [] = []
+joinNewLine (a:[]) = a ++ "\n "
+joinNewLine (a:b) = a ++ "\n" ++ joinNewLine b
+
+joinLines :: [Line] -> String
+joinLines a = joinNewLine ( map joinLine a )

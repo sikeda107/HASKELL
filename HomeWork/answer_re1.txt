@@ -1,0 +1,19 @@
+-- Ex3.20
+averageThree :: Integer -> Integer -> Integer -> Float
+averageThree a b c = ( fromIntegral a + fromIntegral b + fromIntegral c ) / (fromIntegral 3 )
+
+howManyAboveAverage :: Integer -> Integer -> Integer -> Integer
+howManyAboveAverage a b c
+ | avg < (fromIntegral a) && avg < (fromIntegral b) && avg < (fromIntegral c) = 3
+ | avg < (fromIntegral a) && avg < (fromIntegral b) = 2
+ | avg < (fromIntegral a) && avg < (fromIntegral c) = 2
+ | avg < (fromIntegral b) && avg < (fromIntegral c) = 2
+ | avg < (fromIntegral a) || avg < (fromIntegral b) || avg < (fromIntegral c) = 1
+ | otherwise = 0
+ where
+  avg = averageThree a b c
+
+-- Ex5.28
+borrowed :: Database -> Book -> Bool
+borrowed db bk = or [j == bk | j <- bkdb]
+ where bkdb = [snd i | i <- db]
