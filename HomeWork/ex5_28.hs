@@ -17,14 +17,7 @@ borrowed db bk = or [j == bk | j <- bkdb]
  where bkdb = [snd i | i <- db]
 
 numBorrowed :: Database -> Person -> Int
-numBorrowed db pn = length [j | j <- pndb , j == pn ]
- where
-  pndb = [fst i | i <- db]
-
-numBorrowed :: Database -> Person -> Int
-numBorrowed db pn = length [j | j <- pndb , j == pn ]
-   where
-    pndb = [fst i | i <- db]
+numBorrowed db pn = length [j | j <- db , fst j == pn ]
 
   -- borrowed 以外はオーケーです。borrowed の戻り値は Bool です（教科書を
   -- 参照のこと）。引数に指定された本が貸出中ならTrue、そうでなければ

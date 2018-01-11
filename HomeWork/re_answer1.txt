@@ -14,3 +14,6 @@ howManyAboveAverage a b c
   avg = averageThree a b c
 
 -- Ex5.28
+borrowed :: Database -> Book -> Bool
+borrowed db bk = or [j == bk | j <- bkdb]
+ where bkdb = [snd i | i <- db]
