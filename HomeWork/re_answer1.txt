@@ -1,8 +1,4 @@
-import System.Environment
-import Data.List
-import Data.Char
-import Prelude
-
+-- Ex3.20
 averageThree :: Integer -> Integer -> Integer -> Float
 averageThree a b c = ( fromIntegral a + fromIntegral b + fromIntegral c ) / (fromIntegral 3 )
 
@@ -17,11 +13,4 @@ howManyAboveAverage a b c
  where
   avg = averageThree a b c
 
-
-main :: IO ()
-main = do
--- print $ averageThree 1 9 21
--- print $ howManyAboveAverage 1 9 21
-print $ howManyAboveAverage 5 6 7
-print $ howManyAboveAverage 3 8 8
-print $ howManyAboveAverage 10 10 10
+-- Ex5.28
