@@ -1,4 +1,17 @@
 -- Ex7.25
+sublist :: String -> String -> Bool
+sublist _ [] = False
+sublist [] _ = True
+sublist (x:xs) (y:ys)
+ | x == y = sublist xs ys
+ | x /= y = sublist (x:xs) ys
+
+subseq :: String -> String -> Bool
+subseq (x:xs) [] = False
+subseq (x:xs) (y:ys)
+ | (x == y) && xs == (take (length xs) ys) = True
+ | (x:xs) == (take (length (x:xs)) ys) = True
+ | otherwise = subseq (x:xs) ys
 
 
 -- Ex7.29
