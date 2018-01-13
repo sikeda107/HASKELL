@@ -1,8 +1,10 @@
 # Haskell
 ## 実行方法
 ### GHC
-`user$ ghc Hello.hs`
-`user$ ./Hello hoge huga`
+```
+user$ ghc Hello.hs
+user$ ./Hello hoge huga
+```
 ### GHCi
 ```
 user$ ghci
