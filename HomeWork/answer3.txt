@@ -1,0 +1,46 @@
+-- Ex9.6
+
+-- Ex9.7
+
+-- Ex10.6
+squares :: [Integer] -> [Integer]
+squares ns = map (^2) ns
+
+sumsquares :: [Integer] -> Integer
+sumsquares ns = foldr1 (+) (map square ns)
+
+overzeros :: [Integer] -> Bool
+overzeros ns = and (map (> 0) ns)
+
+-- Ex10.7
+minimumf :: (Integer -> Integer) -> Integer -> Integer
+minimumf f n = minimum (map f [0..n])
+
+equals :: (Integer -> Integer ) -> Integer -> Bool
+equals f x = and (map (== (head xs ) ) xs )
+ where xs = map f [0..x]
+
+overzeros :: (Integer -> Integer ) -> Integer -> Bool
+overzeros f x = and (map (> 0) (map f [0..x]))
+
+checkSort :: (Integer -> Integer) -> Integer -> Bool
+checkSort f x = isSorted (map f [0..x])
+
+-- Ex10.15
+last :: [a] -> a
+last [x] =  x
+last (_:xs) =  last xs
+
+init :: [a] -> [a]
+init [x] =  []
+init (x:xs) =  x : init xs
+
+unzip :: [(a, b)] -> ([a], [b])
+unzip xs = (map fst xs, map snd xs)
+
+-- Ex10.24
+dropUntil :: (a -> Bool) -> [a] -> [a]
+dropUntil p []    = []
+dropUntil p (x:xs)
+  | not (p x)   = dropUntil p xs
+  | otherwise   = x : dropUntil p xs

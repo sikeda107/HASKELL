@@ -29,17 +29,6 @@
  -- または、
  -- (2) x と y が異なり、(x:xs) が ys のsublistになるとき
  -- です。
- --
- -- subsequence xs ys は、ys の中に xs が現れる（ys から先頭と末尾の長さ０
- -- 以上の文字列を取り除くと xs が得られる）ときだけ True になります。
- -- したがって、subsequence (x:xs) (y:ys) が True になるのは、
- -- (1) (x:xs) が (y:ys) の先頭に現れる文字列である、すなわち、x と y が
- --     一致し、xs が ys の先頭に現れる文字列であるとき、
- -- または、
- -- (2) (x:xs) が ys のsubsequenceであるとき
- -- です。
-
-
 -- 修正後：
 -- ship  Fish & Chips
 sublist :: String -> String -> Bool
@@ -47,6 +36,14 @@ sublist [] _      = True
 sublist _ []      = False
 sublist (a:b) c = (elem a c) && (sublist b c)
 
+-- subsequence xs ys は、ys の中に xs が現れる（ys から先頭と末尾の長さ０
+-- 以上の文字列を取り除くと xs が得られる）ときだけ True になります。
+-- したがって、subsequence (x:xs) (y:ys) が True になるのは、
+-- (1) (x:xs) が (y:ys) の先頭に現れる文字列である、すなわち、x と y が
+--     一致し、xs が ys の先頭に現れる文字列であるとき、
+-- または、
+-- (2) (x:xs) が ys のsubsequenceであるとき
+-- です。
 --
 subseq :: String -> String -> Bool
 subseq [] _          = True
@@ -66,5 +63,6 @@ main :: IO ()
 main = do
  print $ sublist "ship"  "Fish & Chips"
  print $ sublist "hippies"  "Fish & Chips"
+ print $ sublist "aaa" "a"
  print $ subseq "Chip" "Fish & Chips"
  print $ subseq "Chin Up" "Fish & Chips"
