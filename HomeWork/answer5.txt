@@ -1,0 +1,21 @@
+
+-- EX13.2
+numEqual :: Eq a => a -> [a] -> Int
+numEqual y [] = 0
+numEqual y (x:xs)
+ | y == x = 1 + numEqual y xs
+ | y /= x = numEqual y xs
+
+member :: Eq a => [a] -> a -> Bool
+member xs x
+ | numEqual x xs == 0 = False
+ | numEqual x xs /= 0 = True
+
+-- EX13.7
+Type is Ord
+
+-- EX13.9
+instance (Ord a, Ord b) => Ord (a,b) where
+  (<=) :: a -> b -> Bool
+instance Ord b => Ord [b] where
+  (<=) :: b -> [b] -> Bool
