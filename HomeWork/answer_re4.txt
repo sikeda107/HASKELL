@@ -1,0 +1,26 @@
+Ex11.2
+
+(id.f) apply id after applied f
+(f.id) apply f after applied id
+(id f) apply id after applied f
+
+Most general type a -> a is id used in (id.f) (id f).
+
+f :: Bool -> a
+
+Ex11.8
+enumFromTo0 = enumFromTo 0
+
+total :: (Integer -> Integer) -> (Integer -> Integer)
+total f = (\x -> sum (map f (enumFromTo0 x)))
+
+Ex12.1
+
+Ex12.38
+
+Ex12.43
+fromToStep :: Int -> Int -> Int -> [Int]
+fromToStep m n p
+ | n > m && p < n = [m]
+ | n < m && p > n = [m]
+ | otherwise = m : fromToStep n ((n-m)+n) p

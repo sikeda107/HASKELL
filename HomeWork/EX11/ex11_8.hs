@@ -6,9 +6,20 @@
 --   enumFromTo 7 7 = [7]
 --   enumFromTo 3 2 = []
 
+-- Define a function total
+-- so that total f is the function which at value n gives the total
+-- f0 + f1 + ... fn
+
+enumFromTo0 = enumFromTo 0
+
 total :: (Integer -> Integer) -> (Integer -> Integer)
-total f =
+total f = (\x -> sum (map f (enumFromTo0 x)))
 
 
 main :: IO ()
 main = do
+ print $ enumFromTo 2 5
+ print $ enumFromTo 7 7
+ print $ enumFromTo 3 2
+ print $ sum (map (*2) (enumFromTo0 5))
+ print $ (total (*2)) 5
