@@ -60,3 +60,21 @@ Induction P(xs) => P(x:xs)
  = x : ((xs ++ ys) ++ zs)
 
  This shows that (ind) follows from (hyp), completing the second half of the proof and so the proof itself.
+
+-- Ex10.15
+lastf :: a -> [a] -> [a]
+lastf x [] = [x]
+lastf x xs = xs
+
+last xs = foldr lastf [] xs
+
+-- initf :: a -> [a] -> [a]
+-- initf x [] = []
+-- initf x xs = (x:xs)
+--
+-- init xs = foldr initf [] xs
+
+unzipf :: (a,a) -> ([a],[a]) -> ([a],[a])
+unzipf (x,y) (xs,ys) = (x:xs, y:ys)
+
+unzip xs = foldr unzipf ([],[]) xs
