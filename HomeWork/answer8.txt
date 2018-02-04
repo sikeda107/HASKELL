@@ -1,0 +1,9 @@
+-- EX8.10
+palindrome :: IO()
+palindrome = do line <- getLine
+                if line == reverse line
+                   then putStr "palindrome\n"
+                   else putStr "Not palindrome\n"
+-- EX8.14
+
+-- EX18.3
