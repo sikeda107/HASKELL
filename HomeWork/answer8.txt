@@ -5,5 +5,12 @@ palindrome = do line <- getLine
                    then putStr "palindrome\n"
                    else putStr "Not palindrome\n"
 -- EX8.14
+wc :: Integer -> Integer -> Integer -> IO()
+wc li wo ch  =
+  do line <- getLine
+     if line == ""
+       then putStrLn (show li ++ " lines "++ show wo ++ " words "++ show ch ++ " chars "  )
+       else do
+               wc (li+1) (wo + fromIntegral(length(words line))) (ch + fromIntegral(sum (map length (words line))))
 
 -- EX18.3
