@@ -1,0 +1,3 @@
+-- How would you merge two infinite lists, assuming that they are sorted ?
+-- How would you remove duplicates from the list which results ? As an example,
+-- how would you merge the lists of powers of 2 and 3?

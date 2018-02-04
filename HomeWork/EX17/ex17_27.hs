@@ -1,0 +1,2 @@
+-- Give a definition of the list [2^n | n <- [0 .. ]] using a process network based on scal'. 
+-- (Hint: you can take the example of factorial as a guide.)
