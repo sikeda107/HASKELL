@@ -14,3 +14,13 @@ wc li wo ch  =
                wc (li+1) (wo + fromIntegral(length(words line))) (ch + fromIntegral(sum (map length (words line))))
 
 -- EX18.3
+-- using do
+repeat :: IO Bool -> IO() -> IO()
+repeat iobool io = do
+                      judge <- iobool
+                      if judge == True
+                        then return ()
+                        else do out <- io
+                                repeat iobool io
+
+-- not using do

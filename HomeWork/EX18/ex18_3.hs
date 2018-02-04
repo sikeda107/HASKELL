@@ -15,14 +15,25 @@ import Prelude  hiding (repeat)
   -- repeat (getLine >>= return . (== "")) $ putStrLn "Hello"
 
 -- so that "repeat test oper" has the effect of repeating oper until the condition test is "True".
+
+
+-- //using do
+-- repeat :: IO Bool -> IO() -> IO()
+-- repeat iobool io = do
+--                       judge <- iobool
+--                       if judge == True
+--                         then return ()
+--                         else do out <- io
+--                                 repeat iobool io
+-- //not using do
 repeat :: IO Bool -> IO() -> IO()
 repeat iobool io = do
-                      if iobool == True
-                      then return 0
-                      else repeat (do l <- getLine; return (l == "")) $ putStrLn "Hello"
+                      judge <- iobool
+                      if judge == True
+                        then return ()
+                        else do out <- io
+                                repeat iobool io
 
 main :: IO ()
 main = do
-  putStrLn "Hello"
-  putStrLn "Hello"
   -- repeat (do l <- getLine; return (l == "")) $ putStrLn "Hello"
